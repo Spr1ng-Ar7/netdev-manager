@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>巡检记录 - 网络设备管理系统</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+        <header class="topbar" id="topbar"></header>
+        <main class="content">
+            <div class="card">
+                <div class="toolbar">
+                    <select class="select" id="f-result">
+                        <option value="">全部结果</option>
+                        <option value="NORMAL">正常</option>
+                        <option value="ABNORMAL">异常</option>
+                    </select>
+                    <button class="btn" onclick="loadList(1)">查询</button>
+                    <div class="spacer"></div>
+                    <button class="btn btn-green" onclick="openForm()">＋ 登记巡检</button>
+                </div>
+                <div class="table-wrap">
+                    <table class="tbl">
+                        <thead>
+                        <tr>
+                            <th>编号</th><th>设备</th><th>巡检结果</th><th>巡检内容</th>
+                            <th>巡检人</th><th>巡检时间</th><th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody"></tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="pager"></div>
+            </div>
+        </main>
+    </div>
+</div>
+<script src="js/common.js"></script>
+<script src="js/inspections.js"></script>
+</body>
+</html>

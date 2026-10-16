@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作日志 - 网络设备管理系统</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+        <header class="topbar" id="topbar"></header>
+        <main class="content">
+            <div class="card">
+                <div class="toolbar">
+                    <select class="select" id="f-module">
+                        <option value="">全部模块</option>
+                        <option>认证</option><option>设备管理</option><option>维保维修</option>
+                        <option>借还管理</option><option>巡检管理</option><option>部门管理</option>
+                        <option>位置管理</option><option>用户管理</option><option>图片</option><option>系统</option>
+                    </select>
+                    <input class="input" id="f-keyword" placeholder="搜索操作详情…" style="width:200px">
+                    <button class="btn" onclick="loadList(1)">查询</button>
+                    <button class="btn btn-plain" onclick="resetFilters()">重置</button>
+                </div>
+                <div class="table-wrap">
+                    <table class="tbl">
+                        <thead>
+                        <tr><th>时间</th><th>用户</th><th>模块</th><th>操作</th><th>详情</th><th>IP</th></tr>
+                        </thead>
+                        <tbody id="tbody"></tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="pager"></div>
+            </div>
+        </main>
+    </div>
+</div>
+<script src="js/common.js"></script>
+<script src="js/logs.js"></script>
+</body>
+</html>

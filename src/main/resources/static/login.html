@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 网络设备管理系统</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="login-page">
+    <div class="login-box">
+        <div class="logo-line">
+            <span class="logo-icon">🌐</span>
+            <h1>网络设备管理系统</h1>
+        </div>
+        <div class="sub">Company Network Device Management</div>
+        <div class="form-item">
+            <label>用户名</label>
+            <input class="input" id="username" placeholder="请输入用户名" autocomplete="username">
+        </div>
+        <div class="form-item">
+            <label>密码</label>
+            <input class="input" id="password" type="password" placeholder="请输入密码" autocomplete="current-password">
+        </div>
+        <button class="btn btn-login" id="login-btn">登 录</button>
+        <div class="tips">
+            管理员账号：admin / admin123<br>
+            普通账号：zhangwei / zhang123
+        </div>
+    </div>
+</div>
+<script src="js/common.js"></script>
+<script>
+    // 已登录则直接进入首页
+    // 注意：这里必须用原生 fetch 而不是 request()，
+    // 因为 request() 遇到 401 会跳转 login.html，在登录页上会造成无限刷新循环
+    fetch('/api/auth/me', { credentials: 'same-origin' })
+        .then(r => r.json())
+        .then(res => { if (res && res.code === 0) location.href = 'index.html'; })
+        .catch(() => {});
+
+    async function doLogin() {
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
+        if (!username || !password) { toast('请输入用户名和密码', 'error'); return; }
+        const btn = document.getElementById('login-btn');
+        btn.disabled = true;
+        try {
+            await request('/api/auth/login', { method: 'POST', body: { username, password } });
+            location.href = 'index.html';
+        } catch (e) {
+            toast(e.message, 'error');
+            btn.disabled = false;
+        }
+    }
+
+    document.getElementById('login-btn').onclick = doLogin;
+    document.getElementById('password').addEventListener('keydown', e => e.key === 'Enter' && doLogin());
+    document.getElementById('username').addEventListener('keydown', e => e.key === 'Enter' && doLogin());
+</script>
+</body>
+</html>

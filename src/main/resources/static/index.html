@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>统计仪表盘 - 网络设备管理系统</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+        <header class="topbar" id="topbar"></header>
+        <main class="content">
+            <div class="stat-cards" id="stat-cards"></div>
+            <div class="chart-grid">
+                <div class="card">
+                    <div class="card-title">设备类型分布</div>
+                    <div class="chart-box" id="chart-type"></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">设备状态分布</div>
+                    <div class="chart-box" id="chart-status"></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">部门设备分布</div>
+                    <div class="chart-box" id="chart-dept"></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">近 12 个月采购趋势</div>
+                    <div class="chart-box" id="chart-trend"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<script src="js/lib/echarts.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

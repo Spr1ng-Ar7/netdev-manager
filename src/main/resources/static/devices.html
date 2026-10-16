@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设备管理 - 网络设备管理系统</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+        <header class="topbar" id="topbar"></header>
+        <main class="content">
+            <div class="card">
+                <div class="toolbar">
+                    <input class="input" id="f-keyword" placeholder="搜索名称/IP/MAC/序列号/负责人…" style="width:230px">
+                    <select class="select" id="f-type"><option value="">全部类型</option></select>
+                    <select class="select" id="f-status"><option value="">全部状态</option></select>
+                    <select class="select" id="f-dept"><option value="">全部部门</option></select>
+                    <select class="select" id="f-loc"><option value="">全部位置</option></select>
+                    <button class="btn" onclick="loadDevices(1)">查询</button>
+                    <button class="btn btn-plain" onclick="resetFilters()">重置</button>
+                    <div class="spacer"></div>
+                    <button class="btn btn-green" id="btn-add" style="display:none" onclick="openDeviceForm()">＋ 新增设备</button>
+                </div>
+                <div class="table-wrap">
+                    <table class="tbl">
+                        <thead>
+                        <tr>
+                            <th>设备名称</th><th>类型</th><th>品牌/型号</th><th>IP 地址</th>
+                            <th>部门</th><th>位置</th><th>负责人</th><th>状态</th><th>保修到期</th><th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="device-tbody"></tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="pager"></div>
+            </div>
+        </main>
+    </div>
+</div>
+<script src="js/common.js"></script>
+<script src="js/devices.js"></script>
+</body>
+</html>

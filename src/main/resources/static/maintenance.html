@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>维保维修 - 网络设备管理系统</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+        <header class="topbar" id="topbar"></header>
+        <main class="content">
+            <div class="card">
+                <div class="toolbar">
+                    <select class="select" id="f-status">
+                        <option value="">全部状态</option>
+                        <option value="PENDING">待受理</option>
+                        <option value="PROCESSING">处理中</option>
+                        <option value="DONE">已完成</option>
+                        <option value="REJECTED">已驳回</option>
+                    </select>
+                    <button class="btn" onclick="loadList(1)">查询</button>
+                    <div class="spacer"></div>
+                    <button class="btn btn-green" onclick="openApplyForm()">＋ 提交维保申请</button>
+                </div>
+                <div class="table-wrap">
+                    <table class="tbl">
+                        <thead>
+                        <tr>
+                            <th>工单号</th><th>设备</th><th>故障描述</th><th>申请人</th><th>申请时间</th>
+                            <th>状态</th><th>处理人</th><th>完成时间</th><th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody"></tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="pager"></div>
+            </div>
+        </main>
+    </div>
+</div>
+<script src="js/common.js"></script>
+<script src="js/maintenance.js"></script>
+</body>
+</html>

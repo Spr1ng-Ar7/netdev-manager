@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>部门与位置 - 网络设备管理系统</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+        <header class="topbar" id="topbar"></header>
+        <main class="content">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                <div class="card">
+                    <div class="toolbar" style="margin-bottom:12px">
+                        <div class="card-title" style="margin:0">部门列表</div>
+                        <div class="spacer"></div>
+                        <button class="btn btn-green btn-sm" id="btn-add-dept" style="display:none" onclick="openForm('departments')">＋ 新增部门</button>
+                    </div>
+                    <div class="table-wrap">
+                        <table class="tbl">
+                            <thead><tr><th>名称</th><th>备注</th><th>创建时间</th><th>操作</th></tr></thead>
+                            <tbody id="dept-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="toolbar" style="margin-bottom:12px">
+                        <div class="card-title" style="margin:0">位置列表</div>
+                        <div class="spacer"></div>
+                        <button class="btn btn-green btn-sm" id="btn-add-loc" style="display:none" onclick="openForm('locations')">＋ 新增位置</button>
+                    </div>
+                    <div class="table-wrap">
+                        <table class="tbl">
+                            <thead><tr><th>名称</th><th>备注</th><th>创建时间</th><th>操作</th></tr></thead>
+                            <tbody id="loc-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<script src="js/common.js"></script>
+<script src="js/departments.js"></script>
+</body>
+</html>
