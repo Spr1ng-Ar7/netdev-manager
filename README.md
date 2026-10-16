@@ -66,12 +66,14 @@ GRANT ALL ON netdev_db.* TO 'netdev'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
-> 数据库连接信息通过环境变量配置，启动前设置（密码必填，其余有默认值）：
+> 数据库连接信息通过环境变量配置（密码必填，其余有默认值）。在项目根目录创建 `.env` 文件（不会被提交到仓库），`run.sh` 启动时自动加载：
 >
 > ```bash
-> export DB_PASSWORD='你的密码'
-> # 可选：export DB_URL='jdbc:mariadb://主机:端口/库名'  DB_USERNAME='用户名'
+> DB_PASSWORD='你的密码'
+> # 可选：DB_URL='jdbc:mariadb://主机:端口/库名'  DB_USERNAME='用户名'
 > ```
+>
+> 也可以临时导出环境变量：`export DB_PASSWORD='你的密码'`
 
 ### 2. 启动 / 停止
 
